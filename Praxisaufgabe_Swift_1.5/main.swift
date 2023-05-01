@@ -9,6 +9,6 @@ import Foundation
 
 //Aufabe 1
 
-lottoZahlenGenerieren()
+//ottoZahlenGenerieren()
 
-//fruitShop()
+fruitShop()

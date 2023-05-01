@@ -13,13 +13,14 @@ func fruitShop() {
     var fruits: Dictionary = ["Apfel": 1.99, "Kiwi": 0.90, "Banane": 0.50, "Mango": 2.49, "Papaya": 2.20]
     
     //Präsentation Angebot
-    print("Unsere heutigen Angebote:")
+    print("\n Unsere heutigen Angebote:")
     for (fruits, preis) in fruits{
         print("\(fruits) : \(preis) Euro")
     }
     
     //Kundenangaben
-    print("Guten Tag!")
+    print("\n Guten Tag!")
+    
     print("Welche Frucht möchten Sie haben?")
     if let inputFruits: String = readLine() {
         
@@ -28,10 +29,21 @@ func fruitShop() {
             
             if fruits[inputFruits] != nil {
                 
-                //Endbetrag berechnen
+                //Betrag berechnen
                 let fru = fruits[inputFruits]
-                let totalBetrag = inputAnzahl * Double(fru!)
+                let totalBetrag: Double = inputAnzahl * Double(fru!)
                 print("Ihr Einkauf beträgt \(totalBetrag) Euro.")
+                
+                //Kunde bezahlt mit Betrag, Wechselgled berechnen
+                print("Eingabe des Betrags, mit dem Sie bezahlen:")
+                if let inputBetrag = Double (readLine()!) {
+                    var wechselgeld = inputBetrag - totalBetrag
+                    if wechselgeld < 0.0 {
+                        print("Nicht genügend Geld!")
+                    } else {
+                        print("Ihr Wechselgeld beträgt: \(wechselgeld) Euro")
+                    }
+                }
             }
         }
     }
